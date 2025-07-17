@@ -12,12 +12,13 @@ import { Users } from './entities/user.entity';
   
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'database-1.cji8eg6wwcfd.ap-south-1.rds.amazonaws.com',
+      host: `curd.cji8eg6wwcfd.ap-south-1.rds.amazonaws.com`,
       port: 5432,
       username: 'postgres',
-      password: 'BKiUkYUOJqNEab3MxRRx',
-      database: 'database-1',
+      password: '3j0xxsXqKHmxIl5dERCf',
+      database: 'curd',
       entities: [Product,Users],
+      autoLoadEntities: true,
       synchronize: true,         
     }),
     ProductModule,  
