@@ -14,7 +14,7 @@ import { Users } from './entities/user.entity';
       type: 'postgres',
       host: `curd.cji8eg6wwcfd.ap-south-1.rds.amazonaws.com`,
       port: 5432,
-      username: 'postgres',
+      username: 'curd',
       password: '3j0xxsXqKHmxIl5dERCf',
       database: 'curd',
       entities: [Product,Users],
