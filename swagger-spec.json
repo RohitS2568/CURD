@@ -1,0 +1,165 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+"/product/create": {
+  "post": {
+    "operationId": "ProductController_createProduct",
+    "parameters": [],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "#/components/schemas/CreateProductDto"
+          }
+        }
+      }
+    },
+    "responses": {
+      "201": {
+        "description": ""
+      }
+    },
+    "tags": ["product"],
+    "x-amazon-apigateway-integration": {
+      "uri": "http://your-nestjs-server.com/product/create",
+      "httpMethod": "POST",
+      "type": "http_proxy",
+      "passthroughBehavior": "when_no_match"
+    }
+  }
+},
+    "/product/getAllProduct": {
+      "get": {
+        "operationId": "ProductController_Product",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Returns all users."
+          }
+        },
+        "summary": "Get all users",
+        "tags": [
+          "product"
+        ]
+      }
+    },
+    "/product/update": {
+      "put": {
+        "operationId": "ProductController_updateProduct",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "product"
+        ]
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "operationId": "AuthController_login",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "User login"
+          }
+        },
+        "summary": "User login",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/auth/signup": {
+      "post": {
+        "operationId": "AuthController_signup",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignupDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Title CURD",
+    "description": "CURD description",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "CURD",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreateProductDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "product_size": {
+            "type": "number"
+          },
+          "qty": {
+            "type": "number"
+          },
+          "isActive": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "product_size",
+          "qty",
+          "isActive"
+        ]
+      },
+      "SignupDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "password"
+        ]
+      }
+    }
+  }
+}

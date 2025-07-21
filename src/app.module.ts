@@ -10,17 +10,16 @@ import { Users } from './entities/user.entity';
 @Module({
   imports: [
   
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: `curd.cji8eg6wwcfd.ap-south-1.rds.amazonaws.com`,
-      port: 5432,
-      username: 'postgres',
-      password: '3j0xxsXqKHmxIl5dERCf',
-      database: 'curd',
-      entities: [Product,Users],
-      autoLoadEntities: true,
-      synchronize: true,         
-    }),
+TypeOrmModule.forRoot({
+  type: 'postgres',
+  host: 'localhost',
+  port: 5432,
+  username: 'postgres',
+  password: 'root',
+  database: 'postgres',
+  autoLoadEntities: true,
+  synchronize: false, // ⚠️ Turn off in production
+}),
     ProductModule,  
     AuthModule             
   ],
